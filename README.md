@@ -20,7 +20,19 @@ I adapted and updated the plugin to be compatible with the latest Minecraft Vers
 
 DatapackLoader automatically adds datapacks to your Minecraft server! This plugin can be used to install datapacks and quicken datapack development. DatapackLoader supports Folia, but does not make Folia-incompatible datapacks compatible with Folia.
 
-   
+## Plugin Installation
+
+1. Download plugin from [latest releases](https://github.com/X00LA/DatapackLoader/releases).  
+2. Stop your server.  
+3. Put the datapackloader-X.X.X.jar in your server's plugins folder.  
+   3-1. If you update from previous releases of datapackloader, please delete the old datapackloader folder. :warning: ***Don't forget to backup your datapacks!*** :warning:  
+4. Start the server.  
+5. Now the plugin generates a new folder, config and language files.  
+6. You can change the language in the config file. Currently only english and german are implemented. If you want your language to be in datapackloader, feel free to use the english file as template and create a pull request.  
+7. If you made any changes type /datapackloder reload in your console and reload the config and language files.  
+8. Don't forget to set the corresponding permissions with your preferred permission manager plugin. (I recommend [LuckPerms](https://luckperms.net/)) Per default most permissions are only accessible with op status.  
+9. Now you can either use /datapackloader import <url> to download a datapack directly on your server or you download it yourself and put it into the plugin's datapack folder inside the plugin's folder.  
+10. Now reload the plugin and you're ready to go!  
 
 
 ## Methods
