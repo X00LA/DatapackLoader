@@ -70,6 +70,7 @@ permissions:
 
 ## Changelog
 
+```
 2026.01.31:
     - Updated the code to be compatible with Minecraft 1.21.11 as well with Paper/Spigot/Purpur and Folia support.
     - Cleaned up the code and updated the dependencies.
@@ -79,3 +80,4 @@ permissions:
     - Completely removed bStats.
     - Reworked the commands and permissions system.
     - Added Multilanguage support. Currently only english and german are implemented. Feel free to submit your translations.
+```
