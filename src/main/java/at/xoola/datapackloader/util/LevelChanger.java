@@ -1,22 +1,24 @@
-package com.lichenaut.datapackloader.util;
+package at.xoola.datapackloader.util;
 
-import lombok.RequiredArgsConstructor;
-import org.apache.logging.log4j.Logger;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class LevelChanger {
 
     private final Logger logger;
+    private final LanguageManager languageManager;
 
     public void changeLevelName() throws IOException {
-        logger.info("Altering 'level-name' in 'server.properties' because developer mode is on.");
-        logger.info("This allows for new worlds to generate after the server starts up again.");
+        logger.info(languageManager.getMessage("developer.changing-level"));
+        logger.info(languageManager.getMessage("developer.new-worlds"));
         List<String> lines = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("server.properties"))) {
             String line;

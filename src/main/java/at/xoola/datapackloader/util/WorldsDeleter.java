@@ -1,4 +1,4 @@
-package com.lichenaut.datapackloader.util;
+package at.xoola.datapackloader.util;
 
 import org.apache.commons.io.FileUtils;
 

@@ -1,0 +1,27 @@
+# Deutsche Sprachdatei für DatapackLoader
+# Befehlsnachrichten
+command:
+  help:
+    documentation: "DatapackLoader Dokumentation: "
+    url: "https://github.com/X00LA/DatapackLoader/blob/master/README.md"
+  invalid:
+    usage: "Verwende '/{command} help', '/{command} import <url>' oder '/{command} reload'."
+  only-console: "Befehl kann nur von der Konsole verwendet werden!"
+  only-player: "Befehl kann nur von einem Spieler verwendet werden!"
+  zip-required: "URL muss mit einer .zip Datei enden!"
+  reload:
+    success: "Konfiguration und Sprachdateien erfolgreich neu geladen!"
+    error: "Fehler beim Neuladen der Konfiguration. Prüfe die Konsole für Details."
+
+# Plugin-Nachrichten
+plugin:
+  disabled: "Plugin in config.yml deaktiviert."
+  update-available: "Update verfügbar."
+  datapacks-folder-empty: "Der Ordner '{path}' ist leer. Bitte führe den Befehl '{command} help' aus."
+  stopping-server: "Server wird gestoppt, um neue Datapacks anzuwenden!"
+  import-success: "Erfolg! Stoppe und starte den Server, um die Änderungen anzuwenden."
+
+# Entwicklermodus-Nachrichten
+developer:
+  changing-level: "Ändere 'level-name' in 'server.properties', da der Entwicklermodus aktiviert ist."
+  new-worlds: "Dies ermöglicht das Generieren neuer Welten nach dem Server-Neustart."

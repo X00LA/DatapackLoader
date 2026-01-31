@@ -1,4 +1,4 @@
-package com.lichenaut.datapackloader.dp;
+package at.xoola.datapackloader.dp;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.FileUtils;

@@ -1,0 +1,27 @@
+# English language file for DatapackLoader
+# Command messages
+command:
+  help:
+    documentation: "DatapackLoader documentation: "
+    url: "https://github.com/X00LA/DatapackLoader/blob/master/README.md"
+  invalid:
+    usage: "Use '/{command} help', '/{command} import <url>' or '/{command} reload'."
+  only-console: "Command can only be used by console!"
+  only-player: "Command can only be used by a player!"
+  zip-required: "URL must end with a .zip file!"
+  reload:
+    success: "Configuration and language files reloaded successfully!"
+    error: "Failed to reload configuration. Check console for errors."
+
+# Plugin messages
+plugin:
+  disabled: "Plugin disabled in config.yml."
+  update-available: "Update available."
+  datapacks-folder-empty: "The '{path}' folder is empty. Please execute command '{command} help'."
+  stopping-server: "Stopping server to apply new datapacks!"
+  import-success: "Success! Stop and start the server to apply changes."
+
+# Developer mode messages
+developer:
+  changing-level: "Altering 'level-name' in 'server.properties' because developer mode is on."
+  new-worlds: "This allows for new worlds to generate after the server starts up again."

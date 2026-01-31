@@ -1,22 +1,4 @@
-package com.lichenaut.datapackloader;
-
-import com.lichenaut.datapackloader.cmd.DLCmd;
-import com.lichenaut.datapackloader.cmd.DLTPCmd;
-import com.lichenaut.datapackloader.cmd.DLTPTab;
-import com.lichenaut.datapackloader.cmd.DLTab;
-import com.lichenaut.datapackloader.dp.Applier;
-import com.lichenaut.datapackloader.dp.Checker;
-import com.lichenaut.datapackloader.dp.Finder;
-import com.lichenaut.datapackloader.dp.Importer;
-import com.lichenaut.datapackloader.util.*;
-import lombok.Getter;
-import lombok.Setter;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.bstats.bukkit.Metrics;
-import org.bukkit.command.PluginCommand;
-import org.bukkit.configuration.Configuration;
-import org.bukkit.plugin.java.JavaPlugin;
+package at.xoola.datapackloader;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,36 +11,61 @@ import java.util.Objects;
 import java.util.Properties;
 import java.util.concurrent.CompletableFuture;
 
+import org.bukkit.command.PluginCommand;
+import org.bukkit.configuration.Configuration;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import at.xoola.datapackloader.cmd.DLCmd;
+import at.xoola.datapackloader.cmd.DLTab;
+import at.xoola.datapackloader.dp.Applier;
+import at.xoola.datapackloader.dp.Checker;
+import at.xoola.datapackloader.dp.Finder;
+import at.xoola.datapackloader.dp.Importer;
+import at.xoola.datapackloader.util.GenUtil;
+import at.xoola.datapackloader.util.LanguageManager;
+import at.xoola.datapackloader.util.LevelChanger;
+import at.xoola.datapackloader.util.Messager;
+import at.xoola.datapackloader.util.VersionGetter;
+import at.xoola.datapackloader.util.WorldsDeleter;
+import lombok.Getter;
+import lombok.Setter;
+
 @Getter
 @Setter
 public final class Main extends JavaPlugin {
 
-    private static final Logger logger = LogManager.getLogger("DatapackLoader");
+
     private static final String separator = FileSystems.getDefault().getSeparator();
     private final GenUtil genUtil = new GenUtil();
-    private final Messager messager = new Messager(logger, this);
+    private LanguageManager languageManager;
+    private Messager messager;
     private CompletableFuture<Void> mainFuture = CompletableFuture.completedFuture(null);
     private boolean noConfig;
     private PluginCommand dlCommand;
-    private PluginCommand dltpCommand;
 
     @Override
     public void onEnable() {
-        new Metrics(this, 17272);
         noConfig = !new File(getDataFolder(), "config.yml").exists();
         getConfig().options().copyDefaults(true);
         saveDefaultConfig();
+        
+        languageManager = new LanguageManager(this, getLogger());
+        messager = new Messager(getLogger(), this, languageManager);
         Configuration config = getConfig();
         if (config.getBoolean("disable-plugin")) {
-            logger.info("Plugin disabled in config.yml.");
+            getLogger().info(languageManager.getMessage("plugin.disabled"));
             return;
         }
 
-        new VersionGetter(this, genUtil).getVersion(version -> {
-            if (!this.getDescription().getVersion().equals(version)) {
-                logger.info("Update available.");
-            }
-        });
+        // Update check (only if enabled)
+        if (config.getBoolean("update-check.enabled", false)) {
+            new VersionGetter(this, genUtil).getVersion(version -> {
+                if (version != null && !this.getDescription().getVersion().equals(version)) {
+                    getLogger().info(languageManager.getMessage("plugin.update-available"));
+                    getLogger().info("Current: " + this.getDescription().getVersion() + " | Latest: " + version);
+                }
+            });
+        }
 
         String datapacksFolderPath = getDataFolder().getPath() + separator + "datapacks";
         File datapacksFolder = new File(datapacksFolderPath);
@@ -66,7 +73,7 @@ public final class Main extends JavaPlugin {
             throw new RuntimeException("Failed to create 'datapacks' folder!");
         }
 
-        Finder datapackFinder = new Finder(logger, this, separator);
+        Finder datapackFinder = new Finder(getLogger(), this, separator);
         File[] files = datapacksFolder.listFiles();
         if (files != null) {
             for (File file : files) {
@@ -91,7 +98,7 @@ public final class Main extends JavaPlugin {
             }
         }
 
-        Importer importer = new Importer(logger, this, separator);
+        Importer importer = new Importer(getLogger(), this, separator);
         mainFuture = mainFuture
                 .thenAcceptAsync(declared -> {
                     File[] datapacksFolderFiles = new File(datapacksFolderPath).listFiles();
@@ -112,8 +119,9 @@ public final class Main extends JavaPlugin {
                                     "URISyntaxException: Failed to convert starter datapack string to URL!", e);
                         }
                     } else {
-                        logger.info("The '...{}' folder is empty. Please execute command 'dl help'.",
-                                datapacksFolderPath);
+                        getLogger().info(languageManager.getMessage("plugin.datapacks-folder-empty", 
+                            "{path}", datapacksFolderPath, 
+                            "{command}", "datapackloader"));
                     }
                 });
 
@@ -151,7 +159,7 @@ public final class Main extends JavaPlugin {
                         }
 
                         try {
-                            new LevelChanger(logger).changeLevelName();
+                            new LevelChanger(getLogger(), languageManager).changeLevelName();
                         } catch (IOException e) {
                             throw new RuntimeException(
                                     "IOException: Failed to change 'level-name' in 'server.properties'!", e);
@@ -164,19 +172,28 @@ public final class Main extends JavaPlugin {
 
                     saveConfig();
                     if (importEvent) {
-                        logger.info("Stopping server to apply new datapacks!");
+                        getLogger().info(languageManager.getMessage("plugin.stopping-server"));
                         getServer().shutdown();
                     }
                 });
 
-        dlCommand = getCommand("dl");
-        dltpCommand = getCommand("dltp");
+        dlCommand = getCommand("datapackloader");
         mainFuture = mainFuture
                 .thenAcceptAsync(applied -> {
-                    dlCommand.setExecutor(new DLCmd(genUtil, datapacksFolderPath, logger, this, messager, separator));
+                    dlCommand.setExecutor(new DLCmd(genUtil, datapacksFolderPath, getLogger(), this, messager, languageManager, separator));
                     dlCommand.setTabCompleter(new DLTab());
-                    dltpCommand.setExecutor(new DLTPCmd(genUtil, this, messager));
-                    dltpCommand.setTabCompleter(new DLTPTab(this));
                 });
+    }
+
+    public void reloadPlugin() {
+        try {
+            reloadConfig();
+            languageManager.reload();
+            messager = new Messager(getLogger(), this, languageManager);
+            getLogger().info("Plugin reloaded successfully.");
+        } catch (Exception e) {
+            getLogger().severe("Error reloading plugin: " + e.getMessage());
+            throw e;
+        }
     }
 }

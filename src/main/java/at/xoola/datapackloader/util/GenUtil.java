@@ -1,4 +1,4 @@
-package com.lichenaut.datapackloader.util;
+package at.xoola.datapackloader.util;
 
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
