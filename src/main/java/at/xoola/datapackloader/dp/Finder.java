@@ -1,10 +1,10 @@
-package com.lichenaut.datapackloader.dp;
+package at.xoola.datapackloader.dp;
 
-import com.lichenaut.datapackloader.Main;
-import com.lichenaut.datapackloader.util.Copier;
+import at.xoola.datapackloader.Main;
+import at.xoola.datapackloader.util.Copier;
 import lombok.RequiredArgsConstructor;
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.Logger;
+import java.util.logging.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.BufferedInputStream;

@@ -1,4 +1,4 @@
-package com.lichenaut.datapackloader.dp;
+package at.xoola.datapackloader.dp;
 
 import java.io.File;
 

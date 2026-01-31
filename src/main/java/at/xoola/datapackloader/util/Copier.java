@@ -1,4 +1,4 @@
-package com.lichenaut.datapackloader.util;
+package at.xoola.datapackloader.util;
 
 import java.io.*;
 import java.nio.channels.Channels;

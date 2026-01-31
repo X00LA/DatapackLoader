@@ -1,15 +1,17 @@
-package com.lichenaut.datapackloader.dp;
-
-import com.lichenaut.datapackloader.Main;
-import com.lichenaut.datapackloader.util.Copier;
-import lombok.RequiredArgsConstructor;
-import org.apache.commons.io.FilenameUtils;
-import org.apache.logging.log4j.Logger;
+package at.xoola.datapackloader.dp;
 
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.logging.Logger;
+
+import org.apache.commons.io.FilenameUtils;
+
+import at.xoola.datapackloader.Main;
+import at.xoola.datapackloader.util.Copier;
+
+import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class Importer {

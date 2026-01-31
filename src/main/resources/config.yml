@@ -1,6 +1,13 @@
 #Turn DatapackLoader off.
 disable-plugin: false
 
+# Language setting (en = English, de = German)
+language: en
+
+# Update checker - checks Modrinth for new versions
+update-check:
+  enabled: false
+
 # Not relevant to the user.
 dev-mode-applied: false
 

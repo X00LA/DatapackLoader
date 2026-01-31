@@ -1,13 +1,35 @@
 name: DatapackLoader
 version: "${project.version}"
-main: com.lichenaut.datapackloader.Main
-api-version: "1.20"
-author: lichenaut
+main: at.xoola.datapackloader.Main
+api-version: "1.21"
+author: lichenaut --> updated by xoola
 description: Automatically add datapacks to your Minecraft server.
 load: STARTUP
 commands:
-  dl:
+  datapackloader:
     description: "Base command for 'help' and 'import' commands."
-  dltp:
-    description: "Teleport to the center of any world in spectator mode."
+    aliases: [dpl]
+    permission: datapackloader.command
+    permission-message: "You do not have permission to use this command."
 folia-supported: true
+permissions:
+  datapackloader.*:
+    description: "Grants access to all DatapackLoader commands"
+    default: op
+    children:
+      datapackloader.command: true
+      datapackloader.command.help: true
+      datapackloader.command.import: true
+      datapackloader.command.reload: true
+  datapackloader.command:
+    description: "Allows using the base /datapackloader command"
+    default: op
+  datapackloader.command.help:
+    description: "Allows using /datapackloader help"
+    default: true
+  datapackloader.command.import:
+    description: "Allows using /datapackloader import to add datapacks"
+    default: op
+  datapackloader.command.reload:
+    description: "Allows using /datapackloader reload to reload config and languages"
+    default: op
