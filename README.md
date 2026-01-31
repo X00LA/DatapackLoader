@@ -1,3 +1,5 @@
+
+
 <p align="center">
    <a alt="Supports Minecraft 1.21.11" title="Go to Minecraft's Server download site" href="https://www.minecraft.net/en-us/download/server" > <img alt="Supported Minecraft Version" src="https://img.shields.io/badge/Minecraft-1.21.11-69986a" /></a>
     <img alt="GitHub Release" src="https://img.shields.io/github/v/release/X00LA/datapackloader" />
@@ -10,6 +12,11 @@
         <img alt="Supports Folia" src="https://img.shields.io/badge/Supports-Folia-green" /></a>
     <a alt="Supports PurPur" title="Go to Purpur's download site" href="https://purpurmc.org/download/purpur">
         <img alt="" src="https://img.shields.io/badge/Supports-PurPur-a947ff" /></a>
+</p>
+
+<p align="center">
+    <a alt="Ko-Fi Donation Link" title="Support me on Ko-Fi" href="https://ko-fi.com/Y8Y1RKLT1">
+       <img alt="Ko-Fi Donation Banner" src="https://ko-fi.com/img/githubbutton_sm.svg" /></a>
 </p>
 
 Original Plugin from lichenaut ([Codeberg](https://codeberg.org/lichenaut/DatapackLoader) | [Github](https://github.com/lichenaut/DatapackLoader)).
