@@ -1,4 +1,6 @@
-
+<p align="center">
+   <img alt="Chunky Offline Plugin Logo" src="https://private-user-images.githubusercontent.com/5796516/543335092-510acf87-ed67-458d-831d-1f7c6ca15dd6.png?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njk4OTQxMzIsIm5iZiI6MTc2OTg5MzgzMiwicGF0aCI6Ii81Nzk2NTE2LzU0MzMzNTA5Mi01MTBhY2Y4Ny1lZDY3LTQ1OGQtODMxZC0xZjdjNmNhMTVkZDYucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI2MDEzMSUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNjAxMzFUMjExMDMyWiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9OGY4ZTBjZmRhNmE4MDg3NDYyODRlYWRiMzFjZmYyYWMxOWIzNWM0Zjc0NTZkOGJiMmE2M2E3MjM3NjU0MzY4YyZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QifQ.WO2rwxj2k2CS9vRJNEFMkD9Sn2_dsazD6Lw1gQwQLkA" />
+</p>
 
 <p align="center">
    <a alt="Supports Minecraft 1.21.11" title="Go to Minecraft's Server download site" href="https://www.minecraft.net/en-us/download/server" > <img alt="Supported Minecraft Version" src="https://img.shields.io/badge/Minecraft-1.21.11-69986a" /></a>
