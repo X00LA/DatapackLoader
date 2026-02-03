@@ -3,9 +3,10 @@
 </p>
 
 <p align="center">
-   <a alt="Supports Minecraft 1.21.11" title="Go to Minecraft's Server download site" href="https://www.minecraft.net/en-us/download/server" > <img alt="Supported Minecraft Version" src="https://img.shields.io/badge/Minecraft-1.21.11-69986a" /></a>
-    <img alt="GitHub Release" src="https://img.shields.io/github/v/release/X00LA/datapackloader" />
-    <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/X00LA/datapackloader/total">
+   <a alt="Supports Minecraft 1.21.x" title="Go to Minecraft's Server download site" href="https://www.minecraft.net/en-us/download/server" > <img alt="Supported Minecraft Version" src="https://img.shields.io/badge/Minecraft-1.21.x-69986a" /></a>
+    <img alt="GitHub Release (latest)" src="https://img.shields.io/github/v/release/X00LA/ChunkyOfflinePlugin">
+    <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/X00LA/DatapackLoader/total" />
+    <img alt="GitHub Downloads (latest)" src="https://img.shields.io/github/downloads/X00LA/DatapackLoader/latest/total">
     <a alt="SpigotMC" title="Go to SpigotMC's download site" href="https://hub.spigotmc.org/jenkins/" >
         <img alt="Supports SpigotMC" src="https://img.shields.io/badge/Supports-SpigotMC-gold?style=flat-square" /></a>
     <a alt="Supports PaperMC" title="Go to PaperMC's download site" href="https://papermc.io/downloads/paper" >
@@ -13,7 +14,7 @@
     <a alt="Supports Folia" title="Go to Folia's download site" href="https://papermc.io/downloads/folia">
         <img alt="Supports Folia" src="https://img.shields.io/badge/Supports-Folia-green" /></a>
     <a alt="Supports PurPur" title="Go to Purpur's download site" href="https://purpurmc.org/download/purpur">
-        <img alt="" src="https://img.shields.io/badge/Supports-PurPur-a947ff" /></a>
+        <img alt="Supports Purpur" src="https://img.shields.io/badge/Supports-PurPur-a947ff" /></a>
 </p>
 
 <p align="center">
