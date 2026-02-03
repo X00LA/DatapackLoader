@@ -4,7 +4,7 @@
 
 <p align="center">
    <a alt="Supports Minecraft 1.21.x" title="Go to Minecraft's Server download site" href="https://www.minecraft.net/en-us/download/server" > <img alt="Supported Minecraft Version" src="https://img.shields.io/badge/Minecraft-1.21.x-69986a" /></a>
-    <img alt="GitHub Release (latest)" src="https://img.shields.io/github/v/release/X00LA/ChunkyOfflinePlugin">
+    <img alt="GitHub Release (latest)" src="https://img.shields.io/github/v/release/X00LA/DatapackLoader">
     <img alt="GitHub Downloads (all assets, all releases)" src="https://img.shields.io/github/downloads/X00LA/DatapackLoader/total" />
     <img alt="GitHub Downloads (latest)" src="https://img.shields.io/github/downloads/X00LA/DatapackLoader/latest/total">
     <a alt="SpigotMC" title="Go to SpigotMC's download site" href="https://hub.spigotmc.org/jenkins/" >
